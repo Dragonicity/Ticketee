@@ -5,3 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Seed admin user
+
+unless User.exists?(email: "admin@ticketee.com")
+  User.create!(email: "admin@ticketee.com", password: "password", admin: true)
+end
+
+# Seed non-admin user
+
+unless User.exists?(email: "viewer@ticketee.com")
+  User.create!(email: "viewer@ticketee.com", password: "password", admin: true)
+end
+
+# Seed sample projects
+
+["Website", "Application", "AI Application"].each do | project |
+  unless Project.exists?(name: project)
+    Project.create!(name: project, description: "Sample project for #{project}")
+  end
+end
