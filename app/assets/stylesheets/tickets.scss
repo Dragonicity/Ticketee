@@ -1,6 +1,6 @@
 #attributes {
 	@extend .table;
-	@extend .table_condensed;
+	@extend .table_condensed !optional;
 	width: 65%
 
 	th {

@@ -15,7 +15,7 @@ end
 # Seed non-admin user
 
 unless User.exists?(email: "viewer@ticketee.com")
-  User.create!(email: "viewer@ticketee.com", password: "password", admin: true)
+  User.create!(email: "viewer@ticketee.com", password: "password")
 end
 
 # Seed sample projects
