@@ -13,7 +13,7 @@ class TicketsController < ApplicationController
     if @ticket.save
       flash[:notice] = "Ticket has been created."
       redirect_to [@project, @ticket]
-      #better workflow here is to redirect_to [@project]
+      #better workflow here is to redirect_to [@project]?
     else
       flash.now[:alert] = "Ticket has not been created."
       render "new"
@@ -21,6 +21,7 @@ class TicketsController < ApplicationController
   end
 
   def show
+    authorize @ticket, :show?
   end
 
   def edit
