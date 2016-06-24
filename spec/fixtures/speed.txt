@@ -1,0 +1,1 @@
+The tag can go faster if you use the speed="hyper" attribute.
