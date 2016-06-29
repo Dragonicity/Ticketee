@@ -29,7 +29,7 @@ RSpec.feature "Users can comment on tickets" do
   end
 
   scenario "when changing a ticket's state" do 
-    FactoryGirl.create(:state, name: "Open")
+    FactoryGirl.create(:state, name: "Open", color: "Red")
     visit project_ticket_path(project, ticket)
     fill_in "Text", with: "This is a real issue"
     select "Open", from: "State"
