@@ -1,7 +1,9 @@
 <%= simple_form_for([project, ticket]) do |f| %>
 	<%= f.input :name %>
 	<%= f.input :description %>
-  <%= render "tags/form", f: f %>
+  <% if policy(ticket).tag? %>
+    <%= render "tags/form", f: f %>
+  <% end %>
   <h3>Attachments</h3>
   <%= f.simple_fields_for :attachments do |ff| %>
     <%= ff.input :file, as: :file, label: "File ##{ff.index + 1}" %>
