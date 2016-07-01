@@ -16,7 +16,29 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  # The priority is based upon order of creation: first created -> highest priority.
+  
+  root "projects#index"
+
+  resources :projects, only: [:index, :show, :edit, :update] do
+    resources :tickets do
+      collection do
+        get :search
+      end
+    end
+  end
+
+  resources :tickets, only: [] do
+    resources :comments, only: [:create]
+    resources :tags, only: [] do
+      member do
+        delete :remove
+      end
+    end
+  end
+  resources :attachments, only: [:show]
+end
+
+# The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
@@ -70,20 +92,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root "projects#index"
-
-  resources :projects, only: [:index, :show, :edit, :update] do
-    resources :tickets
-  end
-
-  resources :tickets, only: [] do
-    resources :comments, only: [:create]
-    resources :tags, only: [] do
-      member do
-        delete :remove
-      end
-    end
-  end
-
-  resources :attachments, only: [:show]
-end

@@ -38,6 +38,7 @@ gem 'simple_form', '~> 3.2.1'
 gem 'devise', '~> 3.4.1'
 gem 'pundit'
 gem "carrierwave"
+gem "searcher", github: "radar/searcher"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
