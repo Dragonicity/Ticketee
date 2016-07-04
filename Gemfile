@@ -66,5 +66,6 @@ group :development do
 end
 
 group :production do
-  'rails_12factor'      # 
+  # Enables serving assets in production and setting logger to STDOUT
+  'rails_12factor'     
 end
