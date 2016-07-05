@@ -42,6 +42,7 @@ gem 'carrierwave'
 gem 'searcher', github: 'radar/searcher'
 gem 'fog', '~> 1.29.0'
 gem 'net-ssh'
+gem 'active_model_serializers', '~> 0.9.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
