@@ -41,7 +41,8 @@
 		<tr id="watchers">
 			<th>Watchers:</th>
 			<td>
-				<%= toggle_watching_button(@ticket) %><br />
+				<%= toggle_watching_button(@ticket) %><br />clear
+				
 				<%= @ticket.watchers.map(&:email).to_sentence %>
 			</td>
 		</tr>
